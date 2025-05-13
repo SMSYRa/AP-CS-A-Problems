@@ -7,8 +7,12 @@ public class Main
         int[] unsortedArray = {9, 1, 8, 2, 7, 3, 6, 4, 5};
 
         System.out.println(Arrays.toString(bubbleSort(unsortedArray)));
-        System.out.println(Arrays.toString(insertionSort(unsortedArray)));
-        System.out.println(Arrays.toString(selectionSort(unsortedArray)));
+
+        int[] array2 = {9, 1, 8, 2, 7, 3, 6, 4, 5};
+        System.out.println(Arrays.toString(insertionSort(array2)));
+
+        int[] array3 = {9, 1, 8, 2, 7, 3, 6, 4, 5};
+        System.out.println(Arrays.toString(selectionSort(array3)));
     }
 
     public static int[] bubbleSort(int[] array)
@@ -34,17 +38,30 @@ public class Main
 
     public static int[] insertionSort(int[] array)
     {
-        int num1, j;
+        int j;
 
         for(int i = 1; i < array.length; i++)
         {
-            num1 = Math.abs(5 - array[i]);
 
-            for(j = i; j > 0 && (Math.abs(5 - array[j - 1]) > num1); j++)
+
+            for(j = i; j > 0; j--)
             {
-                array[j] = array[j - 1];
+                int num1 = Math.abs(5 - array[i]);
+                int num2 = Math.abs(5 - array[j - 1]);
+
+                //System.out.println("num1 " + num1);
+                //System.out.println("num2 " + num2);
+
+                if(num2 > num1)
+                {
+                    //System.out.println("swapped");
+                    array[j] = array[j - 1];
+                }
+
             }
 
+            System.out.println(array[j]);
+            System.out.println("array i " + array[i]);
             array[j] = array[i];
         }
 
